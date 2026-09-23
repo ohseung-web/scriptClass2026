@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Ex_TotalPrice</title>
+  <style>
+    .container {
+      width: 400px;
+      padding: 15px;
+      border: 1px solid #000;
+      font-family: sans-serif;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .result-item {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>상품 주문 금액 계산</h2>
+    
+    <label for="quantity">구매 수량 입력: </label>
+    <input type="number" id="quantity" value="5">
+    <button onclick="calculate()">금액 계산</button>
+
+    <div class="result-item" id="priceResult">총 결제 금액: </div>
+    <div class="result-item" id="msgResult">안내 메시지: </div>
+    <div class="result-item" id="shipResult">배송비 여부: </div>
+  </div>
+
+  <script>
+    function calculate() {
+      const unitPrice = 15000;
+      const count = Number(document.getElementById('quantity').value);
+
+      const priceResultDiv = document.getElementById('priceResult');
+      const msgResultDiv = document.getElementById('msgResult');
+      const shipResultDiv = document.getElementById('shipResult');
+
+      // 예외 처리
+      if (count <= 0) {
+        alert("수량을 1개 이상 입력해주세요.");
+        return;
+      }
+
+      // ⑧ if문으로 총 결제 금액 계산
+      let totalPrice = 0;
+      if (count <= 5) {
+        totalPrice = count * unitPrice;
+      } else {
+        // 5개까지는 기본 단가, 5개 초과분은 10% 할인(13500원)
+        totalPrice = (5 * unitPrice) + ((count - 5) * (unitPrice * 0.9));
+      }
+
+      // ⑨ switch(true) 기법을 사용해 안내 메시지 출력
+      let message = "";
+      switch (true) {
+        case (count <= 0):
+          message = "수량을 1개 이상 입력해주세요.";
+          break;
+        case (count <= 5):
+          message = "일반 구매";
+          break;
+        case (count > 5):
+          message = "대량 구매 할인 적용";
+          break;
+      }
+
+      // ⑩ 3항연산자를 사용해 배송비 여부 출력
+      const shippingText = (count > 5) ? "무료 배송" : "배송비 3000원";
+
+      // 화면 출력
+      priceResultDiv.textContent = "총 결제 금액: " + totalPrice + "원";
+      msgResultDiv.textContent = "안내 메시지: " + message;
+      shipResultDiv.textContent = "배송비 여부: " + shippingText;
+    }
+  </script>
+
+</body>
+</html>

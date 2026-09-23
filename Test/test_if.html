@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 IF</title>
+</head>
+<body>
+    <input type="text" id="id">
+    <input type="password" id="pw">
+    <button onclick="logincheck()">로그인</button>
+
+    <script>
+    // 자바스크립트의 데이터 타입 구분
+    //  1. 원시타입(Primitive Type) :  순수데이터를 말함
+    //     ==> string, number, boolean, null, undifined...
+    //  2. 객체타입(Object Type) : Object, Array, Function..
+    //     ==> 객체타입 길이 출력하는 프로퍼티 length 사용한다.
+   
+
+        function logincheck(){
+           let id=document.getElementById('id').value;
+           let pw=document.getElementById('pw').value;
+           //console.log(id); // <input type="text" id="id">
+           // 원시타입인 string데이터 타입에 length프로퍼티를 사용하는 순간
+           // 자바스크립트가 알아서 객체(Object)타입으로 다루어 준다.
+           // 이런 부분을 스크립트의 유연성이라 한다.
+          if(id.length >= 8){
+              console.log(typeof id);
+              console.log('안전한 아이디 입니다.');
+              //alert('로그인 성공'); //메시지 창
+            }else{
+              console.log('불안전한 아이디 입니다.');
+              //alert('로그인 실패');
+           }
+       }
+
+        let num = 5;
+        if(num % 2 == 0){
+            console.log("짝수");
+        }else {
+            console.log("홀수");
+        }
+
+        // 로그인 문제] 
+        // 1. id와 pw입력하는 input 태그 2개작성
+        // 2. button 버튼에 onclick=logincheck()함수를 작성
+        // 3. id가 'admin'이면서 pw='1234'이면 '로그인 성공', 아니면 '로그인 실패'
+        // 4. console.log에 출력할 것
+
+    
+
+
+    </script>
+</body>
+</html>

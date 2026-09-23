@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 연습문제</title>
+</head>
+<body>
+    <!-- 문제 : input 태그에서 입력한 숫자에 해당하는 
+                합계를 구하여 p태그에 출력하시오.
+                단, 무조건 1부터 합계를 구하시오. 
+                    for반복문 이용
+                    확인 버튼을 클릭하면 p태그에 합계를 출력하시오.
+    -->
+    <label for="number">숫자 :</label>
+    <input type="text" id="number">
+    <button onclick="sumCalc()">확인</button>
+     <p id="result"></p>
+
+    <script>
+        let num = document.getElementById('number');
+        let result = document.getElementById('result');
+        
+        function sumCalc(){
+            let num01 = Number(num.value);
+            let sum = 0;
+            for(let i=1; i<=num01; i++){
+                sum += i;
+            }
+
+            // p태그에 출력
+            result.innerText = `합계 : ${sum}`;
+        }
+    </script>
+</body>
+</html>

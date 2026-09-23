@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스핀버튼 증가/감소</title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="minus()">-</button>
+        <span id="countNum">1</span>
+        <button onclick="plus()">+</button>
+    </div>
+
+    <script>
+        // span을 DOM으로 연결하는 목적 : 수량의 증가/감소 값을 넣기위함
+        let countNum = document.getElementById('countNum');
+        let count = 1; // 현재 수량 1
+
+        function minus(){
+            // 마이너스 버튼클릭은 1까지만 감소가능
+            let num = Number(countNum.innerText);
+            // let num = countNum.innerText;
+            console.log(num);
+            console.log(typeof num);
+            if(num > 1){
+                num -= 1;
+               // count--; // count = count - 1
+                // 출력은 span 태그안에 저장한다.
+                // countNum.innerText 의미는 => <span id="countNum">count</span>
+                countNum.innerText = num;
+                
+            }else{
+                alert('최소수량 1개까지');
+            }
+
+        }
+        function plus(){
+            // 플러스 버튼클릭은 10까지만 증가가능
+            if(count < 10){
+                count++; // count = count + 1
+                // 출력은 span 태그안에 저장한다.
+                countNum.innerText = count;
+            }else{
+                alert('최대 수량은 10개까지');
+            }
+
+        }
+    </script>
+</body>
+</html>
