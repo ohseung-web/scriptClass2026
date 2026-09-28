@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화배열 연습문제</title>
+</head>
+<body>
+    <div class="question">
+        <label>1번 점수 배열 입력(예: 95,67,100...)</label>
+        <input type="text" id="scoreInput">
+        <button onclick="scorePrint()">결과 확인</button>
+        <p id="p1"></p>
+    </div>
+    <script>
+        // 조건: 90점 이상 → "A", 80점 이상 → "B", 70점 이상 → "C", 나머지 → "F"
+        // 출력 예시: "95점: A, 67점: F, ..."
+        // split('구분자') 메소드 이용하여 작성
+        let p1 = document.getElementById('p1');
+
+        function scorePrint(){
+            // input입력한 값 가져오기
+            let sInput = document.getElementById('scoreInput').value;
+            // 가지고온 값이 90,70,60.. 쪼개 자르기위해 split(',')사용
+            let scores = sInput.split(','); // ,(콤마)를 구분으로 쪼개서 새로운 배열 생성함
+            let result =''; // 결과 값을 누적해서 저장하는 변수
+
+            for(let i=0; i<scores.length; i++){
+                if(scores[i]>=90) result += scores[i] + '점: A,';    
+                else if(scores[i]>=80) result += scores[i] + '점: B,';
+                else if(scores[i]>=70) result += scores[i] + '점: C,';
+                else result += scores[i] + '점: F, ';
+                console.log(`result : ${result}`);
+                // result : 100점: A,50점: F,80점: B, 
+            }
+            // slice(시작인덱스, 끝인덱스) : 시작부터 끝-1까지 자른다
+            // result = result.slice(0,-2);
+            // ----|---|---|----|------|-----|----|----|---|
+            //    -4  -3  -2   -1      0     1    2    3   4
+            // slice(시작인, 끝인)에 음수를 입력하면 => 끝에서부터 자른다.(오른 ->왼)
+            // slice(시작인, 끝인)에 양수를 입력하면 => 앞에서부터 자른다.(왼 -> 오른)
+            
+            // 문자열 :   1   0   0   점  :       A   ,   5   0   점  :       F   ,   8   0   점  :       B   ,
+            //          +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+            // 양수   :   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21
+            // 음수   : -22 -21 -20 -19 -18 -17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+            
+        
+            console.log('총길이:'+result.length);
+            // console.log('길이:'+ Number(result.length)-1);
+            p1.innerText = result.slice(0, -1); // 0부터 -1전까지 잘라 추출
+        }
+
+
+    </script>
+</body>
+</html>

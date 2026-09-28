@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화배열 연습문제</title>
+</head>
+<body>
+    <div class="question">
+        <label>2번 숫자 배열 입력(예: 12,7,5,20...)</label>
+        <input type="text" id="numberInput">
+        <button onclick="numberPrint()">결과 확인</button>
+        <p id="p1"></p>
+    </div>
+    <script>
+        // 배열: let numbers = [12, 7, 5, 20, 33, 18]
+        // 출력 예시: "짝수: 12, 20, 18 / 홀수: 7, 5, 33“
+        // split('구분자') 메소드 이용하여 작성
+        let p1 = document.getElementById('p1');
+
+        function numberPrint(){
+            // input입력한 값 가져오기
+            let nInput = document.getElementById('numberInput').value;
+            // 가지고온 값이 90,70,60.. 쪼개 자르기위해 split(',')사용
+            let numbers = nInput.split(','); // ,(콤마)를 구분으로 쪼개서 새로운 배열 생성함
+            let oddRe='';//홀수
+            let evenRe='';//짝수
+
+            for(let i=0; i<numbers.length; i++){
+                if(numbers[i] % 2 == 0) evenRe += numbers[i] + ', ';
+                else oddRe += numbers[i] + ', ';
+
+                console.log(`${i+1}번째 점수 : ${numbers[i]}점 -> 짝수:${evenRe} / 홀수 : ${oddRe}`);
+            }
+            
+            evenRe = evenRe.slice(0,-2);
+            oddRe = oddRe.slice(0,-2);
+            p1.innerText = `짝수: ${evenRe} / 홀수 : ${oddRe}`;
+        }
+
+
+    </script>
+</body>
+</html>
