@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 실시간 재고 관리 연습문제</title>
+</head>
+<body>
+    <h2>실시간 재고 관리</h2>
+    <div id="output"></div>
+
+    <script>
+        // 상품, 재고자료를 배열로 생성
+        //               0        1       2
+        let product =['노트북','키보드','마우스'];
+        let stocks =[3,3,2];
+        let output = document.getElementById('output');
+
+        // render()함수를 생성
+        // render()함수안에 HTML 화면그리는 기능 작성 할 것
+        function render(){
+            // 태그들을 저장하는 변수 result = ''
+            let result='';
+            // 총개수 구하는 변수 total =0;
+            let total = 0;
+            // let a = total==0?'1':'2';
+            // a =1, a=2
+            // 반복문을 이용하여 prodcut, stocks에 HTML을 그린다.
+            // <div>노트북 : <span>3개</span> [-][+]</div>
+            for(let i=0; i<product.length; i++){
+                result += `<div class='row'>${product[i]}:
+                           <span>${stocks[i].toLocaleString()}개</span>
+                           <button onclick='minus(${i})'>-</button>
+                           <button onclick='plus(${i})'>+</button></div>`
+                total += stocks[i];           
+            }
+            result += `<div>총 재고 : ${total}개</div>`;
+            output.innerHTML = result;
+        }
+
+        // 처음 스크립트를 실행하면 화면을 그려야하기때문에 반드시 render()호출
+        render();
+
+        // minus 버튼 함수 생성
+        function minus(i){
+            //제고수량이 0보다 클때만 마이너스 된다.
+            if(stocks[i]>0){
+                stocks[i]--;
+            }
+            // 메모리에서는 마이너스 계산됨, 단, HTML 화면은 업데이트가 안됨
+            console.log(stocks); 
+            // HTML 화면을 다시그려야 한다.
+            render(); //화면에 바로 업데이트가 된다.
+        }
+        // plus버튼 함수 생성
+        function plus(i){
+            stocks[i]++;
+            render();
+        }
+    </script>
+</body>
+</html>

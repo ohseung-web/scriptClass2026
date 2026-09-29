@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 기초배열 연습문제</title>
+</head>
+<body>
+    <script>
+        // 문제1번
+        let arry= Array.from(Array(3),()=>new Array(3).fill(0));
+
+        // arry.length = 3
+        for(let i=0; i<arry.length; i++){
+            // arr[0][0] = 1
+            // arr[1][1] = 1
+            // arr[2][2] = 1
+            // [1,0,0] => 0행, 0열
+            // [0,1,0] => 1행, 1열
+            // [0,0,1] => 2행, 2열
+            arry[i][i] = 1;
+        }
+
+        console.log(arry);
+
+         // 문제2번
+        let arry02= Array.from(Array(2),()=>new Array(4).fill(0));
+        //  누적 변수 이용
+        let num = 1;
+        for(let i=0; i<arry02.length; i++){
+            for(let j=0; j<arry02[i].length; j++){
+                arry02[i][j] = num;
+                num++;
+            }
+        }
+        console.log(`arry02 출력 : ${arry02}`);
+
+        // 문제 3 : 4행, 4열 짝수는 0, 홀수 1
+        // 다중 forEach
+        let arry03=Array.from(Array(4),()=>new Array(4).fill(0));
+
+        arry03.forEach((rowValue)=>{ //행
+            rowValue.forEach((coValue,index)=>{ //열
+                // 삼항연산자
+                rowValue[index] = index % 2 == 0 ? 1 : 0;
+            })
+
+            //콘솔 출력
+            console.log(rowValue);
+        })
+
+        // 다중 map()이용
+        const resultArry03 = arry03.map((rowV) =>{
+            return rowV.map((coV,ind)=>{
+                return ind % 2 == 0 ? 1 : 0; 
+            })
+        })
+        console.log(`${resultArry03}`);
+        console.log(resultArry03);
+        
+
+
+
+    </script>
+</body>
+</html>

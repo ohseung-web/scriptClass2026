@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실무 2차원 배열 연습문제</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            border: 1px solid lightgray;
+        }
+        td{border: 1px solid lightgray;}
+    </style>
+</head>
+<body>
+    <h2>자바스크립트 2차원 배열 실습 예제</h2>
+    <div class="container">
+        <h3>3. 달력만들기(6X7)</h3>
+        <div id="calenderOut"></div>
+    </div>
+
+    <script>
+        // 1 ~ 31까지 숫자를 2차원배열에 출력
+        // innerHTML 메소드 이용
+        let calender = Array.from(Array(6), () => new Array(7).fill(0));
+        let caOut = document.getElementById('calenderOut');
+        let result =`<table>`;
+
+        // 요일 헤더
+        const weekdays=['일','월','화','수','목','금','토'];
+        let day=1; // 1부터 시작
+        let lastday=31; // 1달 31일
+
+        result += `<tr>`;
+        weekdays.forEach((value) =>{
+            result += `<th> ${value} </th>`;
+        })
+        result += `</tr>`
+        // 날짜 채우기
+        for(let i=0; i<calender.length; i++){
+            result += `<tr>`;
+            for(let j=0; j<calender[i].length; j++){
+                if(day<=lastday){
+                    calender[i][j]=day;
+                    result += `<td>${day}</td>`;
+                    day++;
+                }else{
+                    result += `<td></td>`
+                }
+            }
+            result += `</tr>`
+            if(day > lastday) break;
+        }
+        result += `</table>`;
+        caOut.innerHTML = result;    
+    </script>
+</body>
+</html>
