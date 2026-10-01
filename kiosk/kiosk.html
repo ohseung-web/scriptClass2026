@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cafekiosk</title>
+    <link rel="stylesheet" href="kiosk.css">
+</head>
+<body>
+       <div class="wrap">
+      <div class="order_menu">
+        <h2>원하시는 음료를 선택해 주세요</h2>
+        <p>Please choose the drink you want.</p>
+        <div class="section1">
+          <h2>MENU</h2>
+          <div class="menubox"></div>
+        </div>
+      </div>
+      <div class="order_list">
+        <div class="section2">
+          <h2>주문내역</h2>
+          <div class="orderbox"></div>
+        </div>
+      </div>
+      <div class="order_result">
+        <h2>총 주문금액 : <span class="pay">0원</span></h2>
+        <span class="line">&boxv;</span>
+        <button class="btn">현금결제</button>
+      </div>
+    </div>
+
+    <script>
+        let menus = [
+        { id:0, name: '아메리카노', type: 'HOT', price: 1000,quantity:1 },
+        { id:1, name: '아메리카노', type: 'ICE', price: 1300,quantity:1 },
+        { id:2, name: '바닐라라떼', type: 'HOT', price: 2500,quantity:1 },
+        { id:3, name: '바닐라라떼', type: 'ICE', price: 2800,quantity:1 },
+        { id:4, name: '연유라떼', type: 'HOT', price: 2500,quantity:1 },
+        { id:5, name: '연유라떼', type: 'ICE', price: 2800,quantity:1 },
+        { id:6, name: '카라멜마끼아또', type: 'HOT', price: 2800,quantity:1 },
+        { id:7, name: '카라멜마끼아또', type: 'ICE', price: 3000,quantity:1 },
+        { id:8, name: '카페모카', type: 'HOT', price: 3000,quantity:1 },
+        { id:9, name: '카페모카', type: 'ICE', price: 3300,quantity:1 },
+        { id:10, name: '딥카페라테', type: 'HOT', price: 3400,quantity:1 },
+        { id:11, name: '딥카페라테', type: 'ICE', price: 3700,quantity:1 },
+      ];
+    </script>
+</body>
+</html>

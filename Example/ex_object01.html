@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오브젝트 기초연습문제</title>
+</head>
+<body>
+    <h3>1. 학생성적 관리 프로그램</h3>
+    <p id="ouput"></p>
+    <script>
+        // 문제1]
+        // 학생 객체 student를 만들고, 이름(name), 나이(age), 전공(major)을 
+        // 속성으로 저장한 뒤 console.log()로 출력하세요.
+        let student = {
+            name:'김길동',
+            age:28,
+            major:'컴공'
+        }
+        console.log('학생정보 :',student);
+
+        // 문제2]
+        // 자동차 객체 car를 만들고, 브랜드(brand), 색상(color), 가격(price)을 
+        // 저장하세요.
+        // 이후 색상을 "검정색"으로 바꾸고, 가격을 3000으로 수정한 뒤 console.log()로 출력하세요.
+        let car ={
+            brand:'Hyundai',
+            color:'흰색',
+            price:2500
+        }
+        console.log('자동차 정보:',car);
+        // 객체 접근하는 방법 : 객체이름.속성이름
+        car.color='검정색';
+        car.price = 3000;
+        console.log('자동차 정보:',car);
+
+        // 문제3번 
+        // 상품 객체 item1, item2를 만들고 각각 이름(name), 가격(price), 수량(quantity)를 
+        // 저장하세요.
+        // 그 후 배열 cart에 넣고, 장바구니 총 금액을 console.log()로 구하세요. 
+
+        let item1 = {name:'노트북',price:1000,quantity:1};
+        let item2 = {name:'마우스',price:50,quantity:2};
+        let cart = [item1,item2]; // 오브젝트 배열
+
+        // 오브젝트 배열을 일명 더미데이터라 부른다.
+        // 오브젝트 배열에서 각 데이터 마다 식별자가 필요하다.
+        // 식별자는 기본 id:0, id:1...... , 데이터베이스의 기본키와 같은 역활을 한다.
+        let cart02 =[
+            {id:0, name:'노트북',price:1000,quantity:1},
+            {id:1, name:'마우스',price:50,quantity:2}
+        ];
+
+        // car는 배열 => for
+        let sum = 0;
+        for(let i=0; i<cart.length; i++){
+            sum += cart[i].price * cart[i].quantity;
+        }
+        
+        console.log('장바구니 총계:',sum);
+
+        // 문제4번
+        let output = document.getElementById('output');
+        let students =[
+             {name:'홍길동', kor: 90, eng: 80, math: 85 },
+             {name:'성춘향', kor: 95, eng: 88, math: 92},
+             {name:'이몽룡', kor: 70, eng: 75, math: 80} 
+        ]
+
+
+    </script>
+</body>
+</html>

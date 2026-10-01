@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kioskCafe</title>
+    <link rel="stylesheet" href="kiosk-new.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="order_menu">
+        <h2>원하시는 음료를 선택해 주세요</h2>
+        <p>Please choose the drink you want.</p>
+        <div class="section1">
+          <h2>MENU</h2>
+          <div class="menubox"></div>
+        </div>
+      </div>
+      <div class="order_list">
+        <div class="section2">
+          <h2>주문내역</h2>
+          <div class="orderbox"></div>
+        </div>
+      </div>
+      <div class="order_result">
+        <h2>총 주문금액 : <span class="pay">0원</span></h2>
+        <span class="line">&boxv;</span>
+        <button class="btn">현금결제</button>
+      </div>
+    </div>
+    <script>
+      let menus = [
+        { id: 0, name: '아메리카노', type: 'HOT', price: 1000, quantity: 1 },
+        { id: 1, name: '아메리카노', type: 'ICE', price: 1300, quantity: 1 },
+        { id: 2, name: '바닐라라떼', type: 'HOT', price: 2500, quantity: 1 },
+        { id: 3, name: '바닐라라떼', type: 'ICE', price: 2800, quantity: 1 },
+        { id: 4, name: '연유라떼', type: 'HOT', price: 2500, quantity: 1 },
+        { id: 5, name: '연유라떼', type: 'ICE', price: 2800, quantity: 1 },
+        {
+          id: 6,
+          name: '카라멜마끼아또',
+          type: 'HOT',
+          price: 2800,
+          quantity: 1,
+        },
+        {
+          id: 7,
+          name: '카라멜마끼아또',
+          type: 'ICE',
+          price: 3000,
+          quantity: 1,
+        },
+        { id: 8, name: '카페모카', type: 'HOT', price: 3000, quantity: 1 },
+        { id: 9, name: '카페모카', type: 'ICE', price: 3300, quantity: 1 },
+        { id: 10, name: '딥카페라테', type: 'HOT', price: 3400, quantity: 1 },
+        { id: 11, name: '딥카페라테', type: 'ICE', price: 3700, quantity: 1 },
+      ];
+
+      // Array와 Object를 이용하여 kiosk 상품주문 하기 만들기
+      // 1. menubox에 커피item 출력하는 함수 작성 - menuList()
+      // 2. menubox에서 클릭한(주문한) 커피 상품을  orderbox에 출력하는 함수 작성
+      //    단, 이문제에서 아주 중요한 포인트는 오브젝트 배열의 담긴자료를 DB(데이터베이스)용도로
+      //        활용하기 위함이다.
+      //        그러므로 내가 주문한 상품을 담아두는 또 다른 오브젝트 배열을 생성하여
+      //        개발해야한다는 점
+      //        함수이름은 : orderList()
+      // 3. plus 버튼 클릭시 주문한 상품의 수량과 금액이 증가하는 함수 작성 - plus()
+      // 4. minus 버튼 클릭시 주문한 상품의 수량과 금액이 감소하는 함수 작성 - minus()
+      // 5. delete 버튼 클릭시 주문한 상품을 삭제(취소)하는 함수 작성 - remove()
+      // 6. 주문한 총금액을 출력하는 함수 작성  - totalMemoy()
+      // 7. 단, 주문한 상품의 plus, minus, delete 버튼 클릭시 총금액도 영향을 받아 수정되어야 한다.
+      // 8. 변수이름 지정 => 통합하기 편리 함
+      // 9. 함수를 분리한 이유 => 중복코드 최소화 하기위해
+      // 10. 리팩토링 => 이전 개발한 코드를 현대적으로 지금 시대에 맞게
+      //                다시 수정하는 작업
+      let menubox = document.querySelector('.menubox');
+      let orderbox = document.querySelector('.orderbox');
+      let pay = document.querySelector('.pay');
+      let orderlist = document.querySelectorAll('.orderlist');
+      let orderListArr = []; // 주문한 상품을 담을 빈 배열 객체를 생성한다.
+     
+
+      // menubox에 커피 상품 출력하는 함수 부분
+      function menuList() {
+        let menuslist = '<ul>';
+        for (let i = 0; i < menus.length; i++) {
+          if (menus[i].type === 'HOT') {
+            menuslist += `<li class="hot" onclick="orderList(${i})"`;
+          } else {
+            menuslist += `<li class="ice" onclick="orderList(${i})"`;
+          }
+          menuslist += `><i></i><span>${menus[i].type}</span><strong>${menus[i].name}</strong><em>${menus[i].price}</em></li>`;
+        }
+        menuslist += '</ul>';
+        menubox.innerHTML = menuslist;
+      }
+
+      // 상품을 메뉴 화면에 출력하기 위해 menuList()함수를 호출한다.
+      menuList();
+
+      // orderList()함수를 작성하여 주문한 상품을 출력한다.
+      function orderList(orderIndex) {
+        // 단, 한번 선택한 상품을 재선택할 시 화면에 출력 안되고
+        // 수량만 1개 증가되도록 코드 짜기
+        // 체크키 이용하여 중복체크
+        let check = -1; //중복된 값을 체크하기 위해 만든 변수
+        for (let j = 0; j < orderListArr.length; j++) {
+          if (orderListArr[j].id === menus[orderIndex].id) {
+            check = j; //check = 0 => check키를 중복된 index로 사용하기 위함
+            // alert('이미 주문한 상품입니다.');
+            break;
+          }
+        }
+       
+        //기존의 상품이 존재하면 수량만 증가
+        if (check > -1) {
+          orderListArr[check].quantity++;
+          // 수량의 <em>태그
+          let quantEm = document.querySelector(`em[emindex="${check}"]`);
+          let priceSpan = document.querySelector(`span[spanindex="${check}"]`);
+          quantEm.textContent = orderListArr[check].quantity;
+          priceSpan.textContent =
+            orderListArr[check].quantity * orderListArr[check].price;
+        } else {
+          // 주문한 상품이 없을 때
+          insertOrder(orderIndex);
+        }
+      }
+
+      // 주문한 상품 orderListArr[]배열에 삽입하는 함수
+      // orderListArr =[
+      // {id:2,name='아메',type='ice',price=1000,quantity:1}
+      // {id:0,name='카멜',type='hot',price=2000,quantity:1}
+      // ]
+      function insertOrder(orderIndex) {
+        orderListArr.push({
+          id: menus[orderIndex].id,
+          name: menus[orderIndex].name,
+          type: menus[orderIndex].type,
+          price: menus[orderIndex].price,
+          quantity: menus[orderIndex].quantity,
+        });
+        orderlistDisplay();
+        totalMoney();
+      }
+
+      // 주문한 상품 orderbox 출력하는 함수
+      function orderlistDisplay() {
+        orderbox.innerHTML = ''; //기존 주문내역 비우기
+
+        for (let i = 0; i < orderListArr.length; i++) {
+          orderbox.innerHTML += `<div class="orderlist" listindex="${i}"><p>${orderListArr[i].name
+          }(${orderListArr[i].type})<em emindex="${i}">${orderListArr[i].quantity}</em>개,<span spanindex="${i}">${orderListArr[i].price.toLocaleString('ko-kr')}</span>원</p>
+                        <button type="button" onclick="minus(${i});">-</button>
+                        <button type="button" onclick="plus(${i});">+</button>
+                        <button type="button" onclick="remove(${i});">x</button></div>`;
+        }
+      }
+
+      // plus, minus 버튼
+      // 주문목록 현재 상품 2개 저장
+      // i=0 => orderIndex =0
+      function plus(orderIndex) {
+        orderListArr[orderIndex].quantity++;
+        // 증가한 수량을 UI의 출력하는 함수
+        updateOrder(orderIndex);
+        totalMoney();
+      }
+
+      function minus(orderIndex) {
+        if (orderListArr[orderIndex].quantity > 1) {
+          orderListArr[orderIndex].quantity--;
+          updateOrder(orderIndex);
+        } else {
+          alert('수량은 1개까지 가능합니다.');
+        }
+        totalMoney();
+      }
+
+      // 수량/가격 갱신 updateOrder()함수
+      function updateOrder(orderIndex) {
+        // em =수량, span =금액
+        // em[0]
+        let quantEm = document.querySelector(`em[emindex="${orderIndex}"]`);
+        let priceSpan = document.querySelector(
+          `span[spanindex="${orderIndex}"]`
+        );
+        // 수량 담기
+        quantEm.textContent = orderListArr[orderIndex].quantity;
+        // 총금액 담기 = 수량 * 가격
+        priceSpan.textContent = (
+          orderListArr[orderIndex].quantity * orderListArr[orderIndex].price
+        ).toLocaleString('ko-kr');
+      }
+
+      // [x]버튼 remove()함수 작성
+      function remove(orderIndex) {
+        // splice() => 배열의 함수
+        orderListArr.splice(orderIndex, 1);
+        // 이미 위에서 배열삭제 됨
+        // UI의 li 삭제 => 화면 리셋 다시 그리기
+        orderlistDisplay();
+        totalMoney();
+      }
+
+      // 총금액 구하는 totalMomey() 함수
+      function totalMoney() {
+        let totalMoney = 0;
+        for (let i = 0; i < orderListArr.length; i++) {
+          totalMoney += orderListArr[i].quantity * orderListArr[i].price;
+        }
+        pay.textContent = totalMoney.toLocaleString('ko-kr');
+      }
+    </script>
+  </body>
+</html>
