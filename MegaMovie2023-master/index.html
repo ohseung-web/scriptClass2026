@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메가박스</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="reset.css">
+    <script src="index.js" defer></script>
+    <script src="https://kit.fontawesome.com/82fd850f0d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header_top">
+            <div class="header_top_wrap">
+                <div class="left">
+                    <a href="#">VIP LOUNGE</a>
+                    <a href="#">멤버십</a>
+                    <a href="#">고객센터</a>
+                </div>
+                <div class="right">
+                    <a href="#">로그인</a>
+                    <a href="sign.html" target="_self">회원가입</a>
+                    <a href="movieSeat.html" target="_self">빠른예매</a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom_wrap">
+                <a href="#" class="sitemap"></a>
+                <a href="#" class="search"></a>
+                <a href="#" class="schedule"></a>
+                <a href="#" class="mymega"></a>
+                <ul class="depth1">
+                    <li>
+                        <a href="#" class="movie"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">전체영화</a></li>
+                                    <li><a href="#">큐레이션</a></li>
+                                    <li><a href="#">무비포스트</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="reserve"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="movieSeat.html" target="_self">빠른예매</a></li>
+                                    <li><a href="#">상영시간표</a></li>
+                                    <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="theater"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">전체극장</a></li>
+                                    <li><a href="#">특별관</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="event"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">진행중 이벤트</a></li>
+                                    <li><a href="#">지난 이벤트</a></li>
+                                    <li><a href="#">당첨자 발표</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="store"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="benefit"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">메가박스 멤버십</a></li>
+                                    <li><a href="#">제휴/할인</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo">
+            <a href="#" class="mainLogo"></a>
+        </div>
+        <div class="headerSitemap">
+            <div class="headerSitemap_wrap">
+                <h1>SITEMAP</h1>
+                <div class="modal">
+                    <ul class="modal_depth1">
+                        <li><a href="#">영화</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">전체영화</a></li>
+                                <li><a href="#">큐레이션</a></li>
+                                <li><a href="#">영화제</a></li>
+                                <li><a href="#">무비포스트</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">예매</a>
+                            <ul class="modal_depth2">
+                                <li><a href="movieSeat.html" target="_self">빠른예매</a></li>
+                                <li><a href="#">상영시간표</a></li>
+                                <li><a href="#">더 브티크 프라이빗 예매</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">극장</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">전체극장</a></li>
+                                <li><a href="#">특별관</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">이벤트</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">진행중 이벤트</a></li>
+                                <li><a href="#">지난 이벤트</a></li>
+                                <li><a href="#">당첨자발표</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">스토어</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">새로운 상품</a></li>
+                                <li><a href="#">메가티켓</a></li>
+                                <li><a href="#">메가찬스</a></li>
+                                <li><a href="#">팝콘/음료/굿즈</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">나의 메가박스</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">나의 메가박스 홈</a></li>
+                                <li><a href="#">예매/구매내역</a></li>
+                                <li><a href="#">영화관람권</a></li>
+                                <li><a href="#">스토어교환권</a></li>
+                                <li><a href="#">할인/제휴쿠폰</a></li>
+                                <li><a href="#">멤버십포인트</a></li>
+                                <li><a href="#">나의 무비스토리</a></li>
+                                <li><a href="#">나의 이벤트 응모내역</a></li>
+                                <li><a href="#">나의 문의내역</a></li>
+                                <li><a href="#">자주쓰는 할인 카드</a></li>
+                                <li><a href="#">회원정보</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">혜택</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">맴버십 안내</a></li>
+                                <li><a href="#">VIP LOUNGE</a></li>
+                                <li><a href="#">제휴/할인</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">고객센터</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">고객센터 홈</a></li>
+                                <li><a href="#">자주묻는질문</a></li>
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">1:1문의</a></li>
+                                <li><a href="#">단체/대관문의</a></li>
+                                <li><a href="#">분실물문의</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">회사소개</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">메가박스소개</a></li>
+                                <li><a href="#">사회공헌</a></li>
+                                <li><a href="#">홍보자료</a></li>
+                                <li><a href="#">제휴/부대사업문의</a></li>
+                                <li><a href="#">온라인제보센터</a></li>
+                                <li><a href="#">IR자료</a></li>
+                                <li><a href="#">인재체용</a></li>
+                                <li><a href="#">윤리경영</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">이용정책</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">스크린수배정에관한기준</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="headerSearch">
+            <div class="headerSearch_wrap">
+                <div class="rank-util">
+                    <button type="button on" class="btn on">예매율 순</button>
+                </div>
+                <div class="rank-cont">
+                    <p class="img"></p>
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <em>1</em>
+                                <a href="#">그대들은 어떻게 살 것인가</a>
+                            </li>
+                            <li>
+                                <em>2</em>
+                                <a href="#">용감한 시민</a>
+                            </li>
+                            <li>
+                                <em>3</em>
+                                <a href="#">마이 샤이니 월드</a>
+                            </li>
+                            <li>
+                                <em>4</em>
+                                <a href="#">30일</a>
+                            </li>
+                            <li>
+                                <em>5</em>
+                                <a href="#">소년들</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-search-area">
+                    <input type="text" id="headerMovieName" class="input-text" placeholder="영화를 검색하세요">
+                    <button type="button" id="btnHeaderSearch" class="btn-search"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="section01">
+            <div class="section01_wrap">
+                <div class="box-office">
+                    <button type="button">박스오피스</button>
+                </div>
+                <a href="#" class="more-movie">
+                    더 많은 영화보기
+                    <i class="iconset ico-more-cross gray"></i>
+                </a>
+                <div class="movie-list">
+                    <div class="cell">
+                        <a href="#" class="movie-info">
+                            <p class="rank">1</p>
+                            <img src="images/poster_01.jpg" alt="">
+                            <div class="modal">
+                                <div class="summary">
+                                    화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다.
+                                    <br>
+                                    어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+                                    <br>
+                                    정체를 알 수 없는 왜가리 한 마리
+                                </div>
+                                <div class="score">
+                                    <p class="title">관람평</p>
+                                    <p class="number">7.3</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="btn-group">
+                            <button class="btn-like">
+                                <i class="iconset icon-heart"></i>
+                                4.2k
+                            </button>
+                            <div class="reserve">
+                                <a href="#" class="button blue">예매</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <a href="#" class="movie-info">
+                            <p class="rank">2</p>
+                            <img src="images/poster_02.jpg" alt="">
+                            <div class="modal">
+                                <div class="summary">
+                                    불의는 못 본 척, 성질은 없는 척, 주먹은 약한 척
+                                    <br><br>
+                                    먹고 살기 위해 조용히 살아 온 기간제 교사 '소시민’.
+                                </div>
+                                <div class="score">
+                                    <p class="title">관람평</p>
+                                    <p class="number">8.1</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="btn-group">
+                            <button class="btn-like">
+                                <i class="iconset icon-heart"></i>
+                                393
+                            </button>
+                            <div class="reserve">
+                                <a href="#" class="button blue">예매</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <a href="#" class="movie-info">
+                            <p class="rank">3</p>
+                            <img src="images/poster_03.jpg" alt="">
+                            <div class="modal">
+                                <div class="summary">
+                                    샤이니와 샤이니월드가 지나온 15년 그리고 지금
+                                    <br><br>
+                                    2008년 데뷔곡 [누난 너무 예뻐(Replay)]를 시작으로
+                                    <br>
+                                    [줄리엣 (Juliette)], [Ring Ding Dong], [Sherlockㆍ셜록
+                                </div>
+                                <div class="score">
+                                    <p class="title">관람평</p>
+                                    <p class="number">10</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="btn-group">
+                            <button class="btn-like">
+                                <i class="iconset icon-heart"></i>
+                                3.4k
+                            </button>
+                            <div class="reserve">
+                                <a href="#" class="button blue">예매</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <a href="#" class="movie-info">
+                            <p class="rank">4</p>
+                            <img src="images/poster_04.jpg" alt="">
+                            <div class="modal">
+                                <div class="summary">
+                                    “완벽한 저에게 신은 저 여자를 던지셨죠”<br>
+                                    지성과 외모 그리고 찌질함까지 타고난, '정열'(강하늘).
+                                    <br><br>
+                                    “모기 같은 존재죠. 존재의 이유를 모르겠는?”
+                                </div>
+                                <div class="score">
+                                    <p class="title">관람평</p>
+                                    <p class="number">8.7</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="btn-group">
+                            <button class="btn-like">
+                                <i class="iconset ico-heart"></i>
+                                1k
+                            </button>
+                            <div class="reserve">
+                                <a href="#" class="button blue">예매</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-link">
+                    <div class="cell">
+                        <div class="search">
+                            <input type="
+                            text" class="input-text" placeholder= "영화명을 입력해 주세요">
+                            <button type="button">
+                                <i class="iconset ico-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset ico-schedule-main"></i>
+                            상영시간표
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset ico-boxoffice-main"></i>
+                            박스오피스
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="movieSeat.html" target="_self">
+                            <i class="iconset ico-quickreserve-main"></i>
+                            빠른예매
+                        </a>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div class="section02">
+            <div class="section02_wrap">
+                <div class="title-util">
+                    <h2 class="title">혜택</h2>
+                    <a href="#" class="btn-more-cross purple"></a>
+                </div>
+                <div class="slider">
+                    <div class="slider-view">
+                        <div class="cell on">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/23/Z5QJaH2OuFprkLFIkB01wtOmdjzNyQIW.jpg">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/23/Ihm6aLFAoVCcgfYFA6S6ZlLpwQ7u4sL7.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/16/WGYcT0ZYe0oqcnx9O9e1SldJ3ulvEDwF.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/16/HTr3vjHb8SvVh8kTD4qmgEOUaW6njPQr.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/10/dCEHdLydf49PZyXDwnaz7zymRS8JsybS.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/10/Hf4Fep908kvstHXxauu3TcxrWlCwcgcT.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/09/is27JU0qbeFrSVj28ALRKYzCD7liGiqm.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/09/tvVDwPFVgLVt1XsslbPhxZ7o4wzjsUfI.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/02/RFpkoor2TQNDZjdEE85gVEEc0Nu76mT4.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/02/yvqc9lTZbMss8ylHkqZTfLfogomOY6fO.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/26/4str8J7NI2PJTzhnSBS6X4dzb3C7at3Z.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/26/O0aMZ4VN32CuYELdHNlibqLCl747AYy4.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/27/BpsetZCq1kea63EPXRJhyCsAY0SnOzz6.jpg">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/27/WSHOVF9pP5Finu1yn7onriTzM8Kwovfv.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/11/IXeFjwhvFZY3sR9ZOPLi2tmilYiLWHAa.jpg">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/09/11/ytZePhfUv1Ea10CB7TkC8XZgTGDmIHx9.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/05/30/qO3Vrswg0PBAn5Nl7l0FdClgatIBHkKj.jpg">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/05/30/0ayIfnfLog0FIuF9oRDZWi9e1HvC3S3K.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/03/14/epS6oiqHOSFccJicF3hl5x6xZeIgjP22.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/03/14/h8fwVvz9E5ktcOWtHjWSR0mMN2XnpxO0.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/06/N6kqTH1b7mON8ovqxcNmRuBxuNYNhy2Z.png">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2023/10/06/TbR5be5Jy9SEZDoemwq2T54vuhb13tfy.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="position">
+                                <div class="txt">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2021/02/01/f7RPSplY1eWEFFhKNBDJK4JIXKv9NBZK.jpg">
+                                    </a>
+                                </div>
+                                <div class="bg">
+                                    <a href="#">
+                                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2021/02/01/fZ8glF2ggujTRrF5vtRuE1iE2UjjV1oF.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-control">
+                        <div class="page">
+                            <span class="on" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                            <span class="" style="width:7.6923076923076925%"></span>
+                        </div>
+                        <div class="util">
+                            <button type="button" class="btn-prev" style="opacity: 0.5;" disabled="true"></button>
+                            <button type="button" class="btn-next" style="opacity: 1;"></button>
+                            <button type="button" class="btn-pause on"></button>
+                            <button type="button" class="btn-play"></button>
+                        </div>
+                        <div class="page-count">1 / 13</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section03">
+            <div class="section03_wrap">
+                <div class="menu-link">
+                    <div class="cell vip">
+                        <a href="#">VIP LOUNGE</a>
+                    </div>
+                    <div class="cell membership">
+                        <a href="#">멤버십</a>
+                    </div>
+                    <div class="cell card">
+                        <a href="#">할인카드안내</a>
+                    </div>
+                    <div class="cell event">
+                        <a href="#">이벤트</a>
+                    </div>
+                    <div class="cell store">
+                        <a href="#">스토어</a>
+                    </div>
+                </div>
+                <div class="grand-open">
+                    <p class="title">
+                        <span>MEGABOX</span>
+                        <strong>
+                            GRAND<br>
+                            OPENING
+                        </strong>
+                    </p>
+                    <div class="open-content">
+                        <div class="open-control">
+                            <div class="page">
+                                <span class="on"></span>
+                            </div>
+                            <div class="util">
+                                <button type="button" class="btn-prev"></button>
+                                <button type="button" class="btn-next"></button>
+                                <button type="button" class="btn-pause"></button>
+                                <button type="button" class="btn-play on"></button>
+                            </div>
+                            <div class="page-count">1 / 1</div>
+                        </div>
+                        <div class="open-swiper">
+                            <div class="open-swiper-wrap">
+                                <div class="cell">
+                                    <a href="#" class="eventBtn new">
+                                        <span class="label">
+                                            <em>신규오픈</em> 
+                                        </span>
+                                        <p class="area">
+                                            제주서귀포
+                                        </p>
+                                        <p class="date">2023.09.20</p>
+                                        <img src="images/bg-noimage-main.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="cell">
+                                    <a href="#" class="eventBtn renewal">
+                                        <span class="label">
+                                            <em>리뉴얼오픈</em> 
+                                        </span>
+                                        <p class="area">
+                                            광명소하
+                                        </p>
+                                        <p class="date">2023.09.20</p>
+                                        <img src="images/bg-noimage-main.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section04">
+            <div class="section04_wrap">
+                <div class="title-util">
+                    <h2 class="title">큐레이션</h2>
+                    <div class="right">
+                        <a href="#">
+                            큐레이션 더보기
+                            <i class="iconset ico-more-cross gray"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="curation-area">
+                    <div class="curation-img">
+                        <p class="badge classic"></p>
+                        <div class="img">
+                            <a href="#">
+                                <img src="images/NR4hw8vOxF0VrtnPjhElfztefIF9UdSj_420.jpg" alt="[21세기 피아노의 거장] 다닐 트리포노프">
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <div class="left">
+                                <a href="#" class="button">상세정보</a>
+                            </div>
+                            <div class="right">
+                                <a href="#" class="button blue">예매</a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <p class="txt">
+                                #클래식소사이어티
+                            </p>
+                            <p class="title">
+                                [21세기 피아노의 거장] 다닐 트리포노프
+                            </p>
+                            <p class="summary">
+                                <br>
+                                21세기 피아노의 거장, 세 피아니스트의 리사이틀
+                                <br>
+                                <br>
+                                오직 한 사람과 피아노로 완성되는 완벽한 무대, 그 마지막
+                                <br>
+                                이 시대의 가장 놀라운 피아니스트 다닐 트리포노프의 연주
+                                <br>
+                                <br>
+                                [상영 정보]
+                                <br>
+                                - 상영기간: 2023년 10월 30일~11월 11일 (매주 월요일, 토요일)
+                                <br>
+                                - 러닝타임: 80분
+                            </p>
+                        </div>
+                    </div>
+                    <div class="curation-list">
+                        <div class="cell">
+                            <a href="#">
+                                <p class="badge classic"></p>
+                                <div class="img">
+                                    <img src="images/ydfueUZwMLpWSSjHXtUtfX8eH1smFCZv_230.jpg" alt="[2023 시네 도슨트] MEET 클림트">
+                                </div>
+                                <p class="title">[2023 시네 도슨트] MEET 클림트</p>
+                            </a>
+                        </div>
+                        <div class="cell">
+                            <a href="#">
+                                <p class="badge film"></p>
+                                <div class="img">
+                                    <img src="images/wrZKxVnLEP3AtWb4wwPyq0rRnK5Iwc0x_230.jpg" alt="너와 나">
+                                </div>
+                                <p class="title">너와 나</p>
+                            </a>
+                        </div>
+                        <div class="cell">
+                            <a href="#">
+                                <p class="badge classic"></p>
+                                <div class="img">
+                                    <img src="images/BmNEYMGlhoPaX75KaA0lmtZwnjrJayUj_230.jpg" alt="[2023 시네 도슨트] MEET 피카소">
+                                </div>
+                                <p class="title">[2023 시네 도슨트] MEET 피카소</p>
+                            </a>
+                        </div>
+                        <div class="cell">
+                            <a href="#">
+                                <p class="badge classic"></p>
+                                <div class="img">
+                                    <img src="images/gU0GNDjdzaxaK3n2HJbqQmbmZ0EKBf3h_230.jpg" alt="[오페라] 마술피리 @The Met2023">
+                                </div>
+                                <p class="title">[오페라] 마술피리 @The Met2023</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section05">
+            <div class="section05_wrap">
+                <h2 class="title">메가박스 안내</h2>
+                <div class="swiper">
+                    <button type="button" class="prev"></button>
+                    <div class="slide">
+                        <div class="slide-inner">
+                            <a href="#" class="bg-dolby"></a>
+                            <a href="#" class="bg-private"></a>
+                            <a href="#" class="bg-boutique"></a>
+                            <a href="#" class="bg-mx"></a>
+                            <a href="#" class="bg-comfort"></a>
+                            <a href="#" class="bg-puppy new"></a>
+                            <a href="#" class="bg-kids"></a>
+                        </div>
+                    </div>
+                    <button type="button" class="next"></button>
+                </div>
+                <div class="info-link">
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset customer"></i>
+                            <span>고객센터</span>
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset faq"></i>
+                            <span>자주 묻는 질문</span>
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset qna"></i>
+                            <span>1:1 문의</span>
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset group"></i>
+                            <span>단체/대관문의</span>
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset lost"></i>
+                            <span>분실물 문의/접수</span>
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="#">
+                            <i class="iconset boutique"></i>
+                            <span>더 부티크 프라이빗<br>대관예매</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer_top">
+            <div class="footer_top_wrap">
+                <div class="footer_menu">
+                    <a href="#">회사소개</a>
+                    <a href="#">인재채용</a>
+                    <a href="#">사회공헌</a>
+                    <a href="#">제휴/광고/부대사업문의</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">위치기반서비스 이용약관</a>
+                    <a href="#" class="bold">개인정보처리방침</a>
+                    <a href="#">윤리경영</a>
+                </div>
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i>극장찾기</button>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="footer_bottom_wrap">
+                <div class="footer_img"></div>
+                <div class="footer_content">
+                    <p>
+                        서울특별시 성동구 왕십리로 50, 6층 (성수동1가, 메가박스 스퀘어) ARS 1544-0070<br>
+                        대표자명 홍정인 · 개인정보보호책임자 공성진 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 2023-서울성동-0177<br>
+                        COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                    </p>
+                </div>
+                <div class="footer_sns">
+                    <a href="#"><img src="images/ico-youtubeN.png" alt="유튜브"></a>
+                    <a href="#"><img src="images/ico-instagramN.png" alt="인스타그램"></a>
+                    <a href="#"><img src="images/ico-facebookN.png" alt="페이스북"></a>
+                    <a href="#"><img src="images/ico-twitterN.png" alt="트위터"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="popup_modal">
+        <div class="wrap">
+            <a href="#" class="popup-img">
+                <img src="images/pic_1.jpg" alt=""> 
+            </a>
+            <div class="popup-control">
+                <div class="popup-btn-play"></div>
+                <div class="popup-swiper-btn">
+                    <span class="swiper-bullet active"></span>
+                    <span class="swiper-bullet"></span>
+                    <span class="swiper-bullet"></span>
+                    <span class="swiper-bullet"></span>
+                    <span class="swiper-bullet"></span>
+                </div>
+            </div>
+            <div class="popup-util">
+                <input id="no_see" type="checkbox">
+                <label for="no_see">하루동안 보지 않기</label>
+            </div>
+            <div class="btn-close"></div>
+        </div>
+    </div>
+    <div class="login_modal">
+        <div class="modal_header">
+            <h3>로그인</h3>
+            <button class="btn_close"></button>
+        </div>
+        <div class="modal_cont">
+            <div class="modal_left">
+                <input type="text" class="input-text id" placeholder="아이디">
+                <input type="password" class="input-text pw" placeholder="비밀번호">
+                <div class="chk-util">
+                    <div class="left">
+                        <input type="checkbox" id="chkIdSave">
+                        <label for="chkIdSave">아이디 저장</label>
+                    </div>
+                    <div class="right">
+                        <a href="#">
+                            <span>휴대폰 간편로그인</span>
+                            <em>광고</em>
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="button purple" disabled>로그인</button>
+                <div class="link">
+                    <a href="#">ID/PW 찾기</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">비회원 예매확인</a>
+                </div>
+                <div class="sns-login">
+                    <a href="#">
+                        <img src="images/ico-naver.png" alt="네이버">
+                    </a>
+                    <a href="#">
+                        <img src="images/ico-kakao.png" alt="카카오톡">
+                    </a>
+                    <a href="#">
+                        <img src="images/ico-payco.png" alt="페이코">
+                    </a>
+                </div>
+            </div>
+            <div class="modal_right">
+                <a href="#">
+                    <img src="images/c4dd80cdcc9039419686f47cf702d96c.png" alt="현대해상 광고" class="hy">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal"></div>
+</body>
+</html>

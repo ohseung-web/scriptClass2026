@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="movieSeat.css">
+    <link rel="stylesheet" href="reset.css">
+    <script defer src="movie.js"></script>
+    <script src="https://kit.fontawesome.com/82fd850f0d.js" crossorigin="anonymous"></script>
+    <!-- defer 명령어는 자바스크립트 코드 중에 DOM을 먼저 읽어들인다. -->
+    <title>좌석선택</title>
+</head>
+<body>
+    <header>
+        <div class="header_top">
+            <div class="header_top_wrap">
+                <div class="left">
+                    <a href="#">VIP LOUNGE</a>
+                    <a href="#">멤버십</a>
+                    <a href="#">고객센터</a>
+                </div>
+                <div class="right">
+                    <a href="#">로그인</a>
+                    <a href="sign.html" target="_self">회원가입</a>
+                    <a href="#">빠른예매</a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom_wrap">
+                <a href="#" class="sitemap"></a>
+                <a href="#" class="search"></a>
+                <a href="#" class="schedule"></a>
+                <a href="#" class="mymega"></a>
+                <ul class="depth1">
+                    <li>
+                        <a href="#" class="movie"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">전체영화</a></li>
+                                    <li><a href="#">큐레이션</a></li>
+                                    <li><a href="#">무비포스트</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="reserve"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">빠른예매</a></li>
+                                    <li><a href="#">상영시간표</a></li>
+                                    <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="theater"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">전체극장</a></li>
+                                    <li><a href="#">특별관</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="event"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">진행중 이벤트</a></li>
+                                    <li><a href="#">지난 이벤트</a></li>
+                                    <li><a href="#">당첨자 발표</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#" class="store"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="benefit"></a>
+                        <!-- <div class="depth2">
+                            <div class="depth2_wrap"> -->
+                                <ul class="depth2">
+                                    <li><a href="#">메가박스 멤버십</a></li>
+                                    <li><a href="#">제휴/할인</a></li>
+                                </ul>
+                            <!-- </div>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo">
+            <a href="index.html" target="_self" class="mainLogo"></a>
+        </div>
+        <div class="headerSitemap">
+            <div class="headerSitemap_wrap">
+                <h1>SITEMAP</h1>
+                <div class="modal">
+                    <ul class="modal_depth1">
+                        <li><a href="#">영화</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">전체영화</a></li>
+                                <li><a href="#">큐레이션</a></li>
+                                <li><a href="#">영화제</a></li>
+                                <li><a href="#">무비포스트</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">예매</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">빠른예매</a></li>
+                                <li><a href="#">상영시간표</a></li>
+                                <li><a href="#">더 브티크 프라이빗 예매</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">극장</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">전체극장</a></li>
+                                <li><a href="#">특별관</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">이벤트</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">진행중 이벤트</a></li>
+                                <li><a href="#">지난 이벤트</a></li>
+                                <li><a href="#">당첨자발표</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">스토어</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">새로운 상품</a></li>
+                                <li><a href="#">메가티켓</a></li>
+                                <li><a href="#">메가찬스</a></li>
+                                <li><a href="#">팝콘/음료/굿즈</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">나의 메가박스</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">나의 메가박스 홈</a></li>
+                                <li><a href="#">예매/구매내역</a></li>
+                                <li><a href="#">영화관람권</a></li>
+                                <li><a href="#">스토어교환권</a></li>
+                                <li><a href="#">할인/제휴쿠폰</a></li>
+                                <li><a href="#">멤버십포인트</a></li>
+                                <li><a href="#">나의 무비스토리</a></li>
+                                <li><a href="#">나의 이벤트 응모내역</a></li>
+                                <li><a href="#">나의 문의내역</a></li>
+                                <li><a href="#">자주쓰는 할인 카드</a></li>
+                                <li><a href="#">회원정보</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">혜택</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">맴버십 안내</a></li>
+                                <li><a href="#">VIP LOUNGE</a></li>
+                                <li><a href="#">제휴/할인</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">고객센터</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">고객센터 홈</a></li>
+                                <li><a href="#">자주묻는질문</a></li>
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">1:1문의</a></li>
+                                <li><a href="#">단체/대관문의</a></li>
+                                <li><a href="#">분실물문의</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">회사소개</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">메가박스소개</a></li>
+                                <li><a href="#">사회공헌</a></li>
+                                <li><a href="#">홍보자료</a></li>
+                                <li><a href="#">제휴/부대사업문의</a></li>
+                                <li><a href="#">온라인제보센터</a></li>
+                                <li><a href="#">IR자료</a></li>
+                                <li><a href="#">인재체용</a></li>
+                                <li><a href="#">윤리경영</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">이용정책</a>
+                            <ul class="modal_depth2">
+                                <li><a href="#">이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">스크린수배정에관한기준</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="headerSearch">
+            <div class="headerSearch_wrap">
+                <div class="rank-util">
+                    <button type="button on" class="btn on">예매율 순</button>
+                </div>
+                <div class="rank-cont">
+                    <p class="img"></p>
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <em>1</em>
+                                <a href="#">그대들은 어떻게 살 것인가</a>
+                            </li>
+                            <li>
+                                <em>2</em>
+                                <a href="#">용감한 시민</a>
+                            </li>
+                            <li>
+                                <em>3</em>
+                                <a href="#">마이 샤이니 월드</a>
+                            </li>
+                            <li>
+                                <em>4</em>
+                                <a href="#">30일</a>
+                            </li>
+                            <li>
+                                <em>5</em>
+                                <a href="#">소년들</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-search-area">
+                    <input type="text" id="headerMovieName" class="input-text" placeholder="영화를 검색하세요">
+                    <button type="button" id="btnHeaderSearch" class="btn-search"></button>
+                </div>
+            </div>
+        </div>
+        <div class="bar"></div>
+    </header>
+    <div class="movieSeatContainer">
+        <div class="modal">
+            <div class="modal_header">
+                <h3 class="title">알림</h3>
+            </div>
+            <div class="modal_content">
+                <p></p>
+                <div class="btn_group">
+                    <button type="button" class="close">취소</button>
+                    <button type="button" class="purple confirm">확인</button>
+                </div>
+            </div>
+            <button type="button" class="btn-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="container_wrap">
+                <h2>빠른예매</h2>
+                <div class="seat_section">
+                    <div class="seat_select">
+                        <div class="util">
+                            <h3>관람인원선택</h3>
+                            <button type="button" onclick="reset();">
+                                <i class="reset"></i>
+                                초기화
+                            </button>
+                        </div>
+                        <div class="seat_area">
+                            <div class="seat_count">
+                                <div class="cell">
+                                    <p>성인</p>
+                                    <div class="count">
+                                        <button type="button" class="down">-</button>
+                                        <button type="button" class="number">0</button>
+                                        <button type="button" class="up">+</button>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <p>청소년</p>
+                                    <div class="count">
+                                        <button type="button" class="down">-</button>
+                                        <button type="button" class="number">0</button>
+                                        <button type="button" class="up">+</button>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <p>우대</p>
+                                    <div class="count">
+                                        <button type="button" class="down">-</button>
+                                        <button type="button" class="number">0</button>
+                                        <button type="button" class="up">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="seat_screen">
+                                <h2>SCREEN</h2>
+                                <div class="seat_layout"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seat_result">
+                        <div class="title_area">
+                            <span class="grade"></span>
+                            <p class="title">30일</p>
+                            <p class="category">2D</p>
+                        </div>
+                        <div class="info_area">
+                            <p class="theater">부천스타필드시티</p>
+                            <p class="theater_num">5관</p>
+                            <p class="date">2023.10.17(화)</p>
+                            <p class="poster"><img src="images/HtmH5PpYs0W2nj4x4pkln4T5Dy7eZvAg_420.jpg" alt="30일"></p>
+                            <div class="time">
+                                <button type="button" class="now">10:40~12:49</button>
+                                <i class="arr"></i>
+                                <ul class="other">
+                                    <li>
+                                        <button type="button" class="btn on">10:40~12:49</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">12:05~14:14</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">13:10~15:19</button>
+                                    </li>    
+                                    <li>
+                                        <button type="button" class="btn">14:35~16:44</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">15:40~17:49</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">18:05~20:14</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">19:25~21:34</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn">20:30~22:39</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="seat_choice_area">
+                            <div class="seat_status">
+                                <ul class="list">
+                                    <li>
+                                        <div class="status choice"></div>
+                                        <em>선택</em>
+                                    </li>
+                                    <li>
+                                        <div class="status done"></div>
+                                        <em>완료</em>
+                                    </li>
+                                    <li>
+                                        <div class="status impossible"></div>
+                                        <em>선택불가</em>
+                                    </li>
+                                    <li>
+                                        <div class="status common"></div>
+                                        <em>일반</em>
+                                    </li>
+                                    <li>
+                                        <div class="status disabled"></div>
+                                        <em>장애인석</em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="seat_choice">
+                                <p class="title">선택좌석</p>
+                                <div class="seats">
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                    <div class="seat">-</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pay_area">
+                            <p class="count">
+                                <span></span>
+                            </p>
+                            <div class="pay">
+                                <p class="title">최종결제금액</p>
+                                <div class="price">
+                                    <em>0</em>
+                                    <span>원</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_group">
+                            <a href="#" class="button previous">이전</a>
+                            <a href="#" class="button next disabled">다음</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer_top">
+            <div class="footer_top_wrap">
+                <div class="footer_menu">
+                    <a href="#">회사소개</a>
+                    <a href="#">인재채용</a>
+                    <a href="#">사회공헌</a>
+                    <a href="#">제휴/광고/부대사업문의</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">위치기반서비스 이용약관</a>
+                    <a href="#" class="bold">개인정보처리방침</a>
+                    <a href="#">윤리경영</a>
+                </div>
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i>극장찾기</button>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="footer_bottom_wrap">
+                <div class="footer_img"></div>
+                <div class="footer_content">
+                    <p>
+                        서울특별시 성동구 왕십리로 50, 6층 (성수동1가, 메가박스 스퀘어) ARS 1544-0070<br>
+                        대표자명 홍정인 · 개인정보보호책임자 공성진 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 2023-서울성동-0177<br>
+                        COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                    </p>
+                </div>
+                <div class="footer_sns">
+                    <a href="#"><img src="images/ico-youtubeN.png" alt="유튜브"></a>
+                    <a href="#"><img src="images/ico-instagramN.png" alt="인스타그램"></a>
+                    <a href="#"><img src="images/ico-facebookN.png" alt="페이스북"></a>
+                    <a href="#"><img src="images/ico-twitterN.png" alt="트위터"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="login_modal">
+        <div class="modal_header">
+            <h3>로그인</h3>
+            <button class="btn_close"></button>
+        </div>
+        <div class="modal_cont">
+            <div class="modal_left">
+                <input type="text" class="input-text id" placeholder="아이디">
+                <input type="password" class="input-text pw" placeholder="비밀번호">
+                <div class="chk-util">
+                    <div class="left">
+                        <input type="checkbox" id="chkIdSave">
+                        <label for="chkIdSave">아이디 저장</label>
+                    </div>
+                    <div class="right">
+                        <a href="#">
+                            <span>휴대폰 간편로그인</span>
+                            <em>광고</em>
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="button purple" disabled>로그인</button>
+                <div class="link">
+                    <a href="#">ID/PW 찾기</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">비회원 예매확인</a>
+                </div>
+                <div class="sns-login">
+                    <a href="#">
+                        <img src="images/ico-naver.png" alt="네이버">
+                    </a>
+                    <a href="#">
+                        <img src="images/ico-kakao.png" alt="카카오톡">
+                    </a>
+                    <a href="#">
+                        <img src="images/ico-payco.png" alt="페이코">
+                    </a>
+                </div>
+            </div>
+            <div class="modal_right">
+                <a href="#">
+                    <img src="images/c4dd80cdcc9039419686f47cf702d96c.png" alt="현대해상 광고" class="hy">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal"></div>
+</body>
+</html>
