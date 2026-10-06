@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- 
+        1) 문서 객체 모델(DOM, Document Object Model)은 
+           XML이나 HTML 문서에 접근하기 위한 일종의 인터페이스이다.
+        2) 웹 문서의 모든 요소를 자바스크립트를 이용하여 조작 할 수 있도록 
+           객체를 사용해 문서를 해석하는 방법
+        3) DOM 트리는 웹 문서의 HTML 요소만 표현하지 않는다. HTML요소가 품고 있는 텍스트, 
+           이미지도 자식으로 간주한다.
+    -->
+    <h1>제목</h1>
+    <p>본문</p>
+    <h2 id="title">Hello</h2>
+    <!-- 1) 요소노드(Element) : h2
+         2) 속성노드 : id='title'
+         3) 텍스트노드 : "Hello" 
+    -->
+    <p id="test01">test01</p>     
+    <p class="test02">test02</p>     
+    <p class="test02">test03</p>
+    <p class="test04"><span class="spanTest04">test04</span></p>
+    <h1 id="title02">안녕하세요</h1>
+
+    <script>
+        //  요소노드 선택할때 사용 : getElementById('test01'), getElementsByClassName('test02')[0],
+        //                          getElementsByTagName('p')[0]
+        let elementNode01 = document.getElementById('test01');
+        let elementNode02 = document.getElementsByClassName('test02');
+        let elementNode03 = document.getElementsByTagName('p');
+        console.log('요소노드01:',elementNode01);
+        console.log('요소노드02:',elementNode02);
+        console.log('요소노드03:',elementNode03);
+        
+        // querySelector()와 querySelectorAll()함수도 마찬가지로 요소 노드를 선택하지만, 
+        // CSS 선택자 문법을 사용할 수 있어 더 유연하고 세밀하게 요소를 찾을 수 있다. 
+        let elmen04 = document.querySelector('.test04 .spanTest04');
+        // <span class="spanTest04">test04</span>
+        console.log('querySelector :',elmen04);
+        
+        // DOM요소에 속성노드 접근하기
+        //  => 요소의 텍스트나 속성에 접근하려면, 선택된 요소에서 
+        // .textContent, .innerText, .getAttribute(), .setAttribute() 등의 프로퍼티/메서드를 사용해야 한다.
+        // setAttribute('속성이름', '속성값')
+        let elmen05 = document.querySelector('.test04');
+        elmen05.setAttribute('id','#stest04');
+        console.log('setAtrribute', elmen05);
+
+        
+
+        document.getElementById("title02").textContent = "DOM 조작 성공!";
+        
+    </script>     
+</body>
+</html>
