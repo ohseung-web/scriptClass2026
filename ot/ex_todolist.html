@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <style>
+       /* 기본 배경 및 중앙 정렬 */
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        }
+
+        /* 할 일 목록 컨테이너 */
+        .todo-container {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        }
+
+        .todo-container h1 {
+        margin-top: 0;
+        color: #333;
+        font-size: 24px;
+        text-align: center;
+        }
+
+        /* 입력 영역 */
+        .input-area {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        }
+
+        .input-area input {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        }
+
+        .input-area input:focus {
+        border-color: #4a90e2;
+        }
+
+        .input-area button {
+        padding: 10px 16px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        }
+
+        .input-area button:hover {
+        background-color: #357abd;
+        }
+
+        /* 리스트 스타일 */
+        #tasks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        #tasks li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        word-break: break-all;
+        }
+
+        /* 삭제 버튼 (X) 스타일 */
+        .btnDel {
+        background: transparent;
+        border: none;
+        color: #e74c3c;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 4px;
+        }
+
+        .btnDel:hover {
+          background-color: #fde8e8;
+        }
+  </style>
+</head>
+<body>
+
+  <!-- 조건 ① 주어진 HTML 구조 -->
+  <div class="todo-container">
+    <h1>할 일 목록</h1>
+    <div class="input-area">
+      <input id="task" type="text" placeholder="할 일 입력" />
+      <button onclick="addTask()">추가</button>
+    </div>
+    <ul id="tasks"></ul>
+  </div>
+
+  <script>
+
+    function addTask(){
+        let val = document.getElementById('task').value;
+        if(val == ''){
+            return;
+        }
+
+        let litodo = document.createElement('li');
+        litodo.textContent = val;
+        document.getElementById('tasks').appendChild(litodo);
+       
+        // li -> button 생성
+        let btn = document.createElement('button');
+        litodo.appendChild(btn);
+        btn.className ='btnDel';
+        btn.innerText= 'X';
+        
+        // 버튼 클릭하면 삭제
+        btn.onclick = function() {
+            litodo.remove();
+        }
+    }
+    
+  </script>
+
+</body>
+</html>
+`

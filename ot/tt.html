@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>방명록 예제</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    li { 
+      padding: 8px; 
+      margin-top: 5px; 
+      background-color: #f0f0f0; 
+      width: 200px; 
+      cursor: pointer; 
+    }
+    li:hover { background-color: #ffe6e6; } /* 마우스 올리면 삭제 안내 색상 */
+  </style>
+</head>
+<body>
+
+  <h2>간단 방명록</h2>
+  <input id="nameInput" type="text" placeholder="이름 입력">
+  <button onclick="addName()">등록</button>
+
+  <h3>방문자 목록 (클릭하면 삭제됩니다)</h3>
+  <ul id="nameList"></ul>
+
+  <script>
+    function addName() {
+      const input = document.getElementById("nameInput");
+      const text = input.value;
+
+      if (text === "") return;
+
+      const ul = document.getElementById("nameList");
+
+      // 1. li 생성 및 텍스트 추가
+      const li = document.createElement("li");
+      const textNode = document.createTextNode(text);
+      li.appendChild(textNode);
+
+      // 2. 클릭 시 자기 자신(li) 삭제 기능 부여
+      li.setAttribute("onclick", "removeName(this)");
+
+      // 3. ul에 li 추가
+      ul.appendChild(li);
+
+      input.value = "";
+    }
+
+    function removeName(element) {
+      const ul = document.getElementById("nameList");
+      ul.removeChild(element); // 클릭한 li를 바로 삭제
+    }
+  </script>
+
+</body>
+</html>

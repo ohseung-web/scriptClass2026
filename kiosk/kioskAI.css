@@ -1,0 +1,298 @@
+@charset "utf-8";
+/* ===== 기본 리셋 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  background: #f3ede6;
+  color: #3b2a20;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== 전체 레이아웃 (flex, 좌: 메뉴 / 우: 주문내역 / 하단: 결제) ===== */
+.wrap {
+  display: flex;
+  flex-wrap: wrap; /* 하단 결제 영역을 아래 줄로 내리기 위함 */
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+  align-content: flex-start;
+}
+
+/* ===== 왼쪽 : 상품(메뉴) ===== */
+.order_menu {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 620px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+}
+
+.order_menu > h2 {
+  font-size: 26px;
+  color: #5a3825;
+}
+
+.order_menu > p {
+  margin: 4px 0 20px;
+  font-size: 14px;
+  color: #999;
+}
+
+.section1 > h2,
+.section2 > h2 {
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  border-bottom: 3px solid #5a3825;
+}
+
+/* 메뉴 목록: flex-wrap 으로 3열 배치 */
+.menubox ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.menubox li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc((100% - 28px) / 3); /* 3열 */
+  padding: 18px 8px;
+  text-align: center;
+  background: #fafafa;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.menubox li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.menubox li:active {
+  transform: translateY(0);
+}
+
+/* 아이콘 (빈 <i> 태그 활용) */
+.menubox li i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 8px;
+  font-style: normal;
+  font-size: 26px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.menubox li.hot i::before {
+  content: '☕';
+}
+
+.menubox li.ice i::before {
+  content: '🧊';
+}
+
+/* HOT / ICE 뱃지 */
+.menubox li span {
+  padding: 2px 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.menubox li.hot {
+  border-color: #f3c6b8;
+}
+.menubox li.hot span {
+  background: #e4572e;
+}
+.menubox li.hot:hover {
+  border-color: #e4572e;
+}
+
+.menubox li.ice {
+  border-color: #bcd9f0;
+}
+.menubox li.ice span {
+  background: #2e86de;
+}
+.menubox li.ice:hover {
+  border-color: #2e86de;
+}
+
+.menubox li strong {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.menubox li em {
+  font-style: normal;
+  font-size: 15px;
+  color: #777;
+}
+
+.menubox li em::after {
+  content: '원';
+}
+
+/* ===== 오른쪽 : 주문내역 ===== */
+.order_list {
+  flex: 0 0 380px;
+  height: 620px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderbox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.orderlist {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: #faf6f1;
+  border: 1px solid #eadfd3;
+  border-radius: 10px;
+}
+
+.orderlist p {
+  flex: 1;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.orderlist p em {
+  margin-left: 8px;
+  font-style: normal;
+  color: #e4572e;
+}
+
+.orderlist p span {
+  color: #5a3825;
+}
+
+.orderlist button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #5a3825;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.orderlist button:hover {
+  background: #8a5a3c;
+}
+
+/* 삭제(x) 버튼 : 마지막 버튼 */
+.orderlist button:last-child {
+  background: #c0392b;
+}
+
+.orderlist button:last-child:hover {
+  background: #e74c3c;
+}
+
+/* ===== 하단 : 총 주문금액 + 결제 버튼 ===== */
+.order_result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  width: 100%; /* 한 줄 전체 사용 */
+  padding: 20px 28px;
+  background: #5a3825;
+  color: #fff;
+  border-radius: 16px;
+}
+
+.order_result h2 {
+  font-size: 24px;
+}
+
+.order_result .pay {
+  color: #ffd166;
+}
+
+.order_result .pay::after {
+  content: '원';
+}
+
+.order_result .line {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.order_result .btn {
+  padding: 14px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #5a3825;
+  background: #ffd166;
+  border-radius: 10px;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.order_result .btn:hover {
+  background: #ffc233;
+  transform: scale(1.04);
+}
+
+/* ===== 작은 화면 대응 ===== */
+@media (max-width: 900px) {
+  .order_menu,
+  .order_list {
+    flex: 1 1 100%;
+    height: auto;
+    max-height: 520px;
+  }
+
+  .menubox li {
+    width: calc((100% - 14px) / 2); /* 2열 */
+  }
+}

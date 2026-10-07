@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <style>
+        /* 기본 스타일 상태에서 적용할 변경 스타일 클래스 */
+        .active-style {
+            color: red;
+            font-family: "Century Schoolbook", serif;
+            font-style: italic;
+        }
+</style>
 </head>
 <body>
     <!-- 
@@ -26,6 +34,15 @@
     <p class="test02">test03</p>
     <p class="test04"><span class="spanTest04">test04</span></p>
     <h1 id="title02">안녕하세요</h1>
+
+    <ul id="list">
+        <li>기존 항목</li>
+        <li id="item">삭제될 항목</li>
+    </ul>
+
+    <p id="p1">This is a paragraph.</p>
+    <input type="button" onclick="changeStyle()" value="눌러보세요" />
+
 
     <script>
         //  요소노드 선택할때 사용 : getElementById('test01'), getElementsByClassName('test02')[0],
@@ -51,9 +68,51 @@
         elmen05.setAttribute('id','#stest04');
         console.log('setAtrribute', elmen05);
 
-        
+       // id 속성 값 가져오기
+        const idValue = elmen05.getAttribute('id');
+        console.log('getAttribute:', idValue);
 
         document.getElementById("title02").textContent = "DOM 조작 성공!";
+        
+
+        //1. appendChild() 메서드
+        // 부모 요소의 마지막 자식 요소로 새로운 노드를 추가하는 메서드입니다.
+        // 사용 가능 대상: 자식 노드를 가질 수 있는 모든 부모 요소 (<div>, <ul>, <ol>, <p>, <body> 등)
+        // document.createElement("li")
+        // 브라우저 메모리에 <li>라는 새로운 HTML DOM 엘리먼트 객체를 새로 생성합니다.
+            
+        // 1. document.createElement("li")
+        // 역할: 새로운 HTML 태그 객체를 메모리 상에 새로 생성합니다.
+        // 특징: 이 코드가 실행되어도 화면에는 아무것도 나타나지 않습니다. 
+        // 아직 브라우저의 화면 구조(DOM 트리)에 연결되지 않은 '공중에 떠 있는 부품' 상태이기 때문입니다.
+
+        // 2. appendChild(li)
+        // 역할: 만들어둔 태그 객체를 지정한 부모 요소의 맨 마지막 자식으로 붙여 넣습니다.
+        // 특징: 이 코드가 실행되는 순간, 공중에 떠 있던 요소가 화면 
+        // 구조에 실제로 연결되면서 사용자 눈에 비로소 보이게 됩니다.    
+        let lia = document.createElement("li");
+        lia.textContent = "새 항목";
+        document.getElementById("list").appendChild(lia);
+
+        // 2. remove() 메서드
+        // 해당 요소를 DOM 트리의 부모 요소로부터 직접 삭제하는 메서드입니다.
+        // 사용 가능 대상: DOM에 존재하는 모든 HTML 요소
+        document.getElementById("item").remove();
+
+
+
+        function changeStyle() {
+            document.getElementById("p1").style.color = "red";
+            document.getElementById("p1").style.fontFamily = "Century Schoolbook";
+            document.getElementById("p1").style.fontStyle = "italic";
+        }
+
+        function changeStyle() {
+            // active-style 클래스가 없으면 추가하고, 있으면 제거함
+            document.getElementById("p1").classList.toggle("active-style");
+        }
+</script>
+
         
     </script>     
 </body>
