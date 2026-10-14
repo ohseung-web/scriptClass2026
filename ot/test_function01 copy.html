@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .container{
+            width: 400px;
+            margin: 20px auto;
+        }
+        ul{
+            list-style: none;
+            margin: 10px;
+            padding: 0;
+        }
+        /* 버튼이 선택되었을 때 시각적으로 구분해주기 위한 스타일 예시 */
+        .btn.active {
+            background-color: #ff6b6b;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn">과일</button>
+        <button class="btn">어류</button>
+        <ul class="cart"></ul>
+    </div>
+    <script>
+        let menu = [
+        {id: 1, name: '딸기', category: 1},
+        {id: 2, name: '사과', category: 1},
+        {id: 3, name: '메론', category: 1},
+        {id: 4, name: '고등어', category: 2},
+        {id: 5, name: '조기', category: 2}
+    ];
+    
+    let cart = document.querySelector('.cart');
+    let btn = document.querySelectorAll('.container .btn');
+
+    // 1. 페이지 로드 시 초기 화면 출력을 위한 즉시 실행 함수
+    (function(categoryNum) {
+        let filterMenu = menu.filter(item => item.category === categoryNum);
+        let result = '';
+        for(let i = 0; i < filterMenu.length; i++){
+            result += `<li>${filterMenu[i].name}</li>`;
+        }
+        cart.innerHTML = result;
+    })(1); // 처음 실행할 때 1(과일)을 인자로 전달!
+
+    // 2. 버튼 클릭 시 해당 카테고리로 즉시 실행 함수를 다시 동작시키기
+    btn.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            let cateIndex = index + 1;
+
+            // 클릭할 때마다 실행되는 즉시 실행 함수 (IIFE)
+            (function(categoryNum) {
+                let filterMenu = menu.filter(item => item.category === categoryNum);
+                let result = '';
+                for(let i = 0; i < filterMenu.length; i++){
+                    result += `<li>${filterMenu[i].name}</li>`;
+                }
+                cart.innerHTML = result;
+            })(cateIndex); // 클릭한 버튼에 맞는 번호를 인자로 즉시 전달
+        });
+    });
+    </script>
+</body>
+</html>

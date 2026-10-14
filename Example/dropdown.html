@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드롭다운 메뉴</title>
+    <style>
+        *{box-sizing: border-box; padding: 0;margin: 0;font-family: sans-serif;}
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+        .dropdown{
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .dropdown-btn{
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            gap: 5px;
+        }
+        .arrow{
+            /* display: block; */
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        .dropdown-menu{
+            position: absolute;
+            top:120%;
+            left: 0;
+            list-style: none;
+            padding: 10px 15px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            /* 화면에 메뉴가 보이지 않아야 하기때문에 */
+            display: none; 
+            width: 170px;
+        }
+        .dropdown-menu li{
+            padding: 7px 0;
+            cursor: pointer;
+        }
+        .dropdown-menu li:hover{
+            color: #000;
+            font-weight: bold;
+        }
+        /* 안보이던 메뉴 보이기 */
+        .dropdown-menu.show{
+            display: block;
+        }
+        /* 화살표 180도 방향 */
+        .dropdown .arrow.up{
+            transform: rotate(180deg);
+            transition: transform 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <button class="dropdown-btn" id="dropdownBtn">
+            고객센터 <span class="arrow">▼</span>
+        </button>
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">뉴스/이벤트</a></li>
+            <li><a href="#">상품 리뷰</a></li>
+            <li><a href="#">상품 문의</a></li>
+            <li><a href="#">대량구매/도매문의</a></li>
+            <li><a href="#">기타문의</a></li>
+        </ul>
+    </div>
+    <script>
+        // 고객센터 ▼ 클릭하면 메뉴 보이기
+        let dropdownBtn = document.getElementById('dropdownBtn');
+        let dropdownMenu = document.getElementById('dropdownMenu');
+        let arrow = document.querySelector('.arrow');
+        // let arrow = document.getElementsByClassName('arrow')[0];
+
+        dropdownBtn.addEventListener('click',() =>{
+            // toggle
+            dropdownMenu.classList.toggle('show');
+            // 화살표 회전
+            arrow.classList.toggle('up');
+        })
+    </script>    
+</body>
+
+</html>

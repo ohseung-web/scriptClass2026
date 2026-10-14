@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .container{
+            width: 400px;
+            margin: 20px auto;
+        }
+        ul{
+            list-style: none;
+            margin: 10px;
+            padding: 0;
+        }
+        /* 버튼이 선택되었을 때 시각적으로 구분해주기 위한 스타일 예시 */
+        .btn.active {
+            background-color: #ff6b6b;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn">과일</button>
+        <button class="btn">어류</button>
+        <ul class="cart"></ul>
+    </div>
+    <script>
+        let menu=[
+            {id:0,name:'딸기',category:1},
+            {id:0,name:'사과',category:1},
+            {id:0,name:'메론',category:1},
+            {id:0,name:'고등어',category:2},
+            {id:0,name:'조기',category:2}
+        ]
+        
+        let cart = document.querySelector('.cart');
+        let btn = document.querySelectorAll('.container .btn');
+
+        (function reander(categoryNum){
+            // .filter() 메서드 사용: 조건이 참(true)인 아이템들만 모아서 새로운 배열로 반환
+            let filterMenu = menu.filter((item) => {
+                return item.category === categoryNum;
+            });
+
+            let result = '';
+            for(let i=0; i<filterMenu.length; i++){
+                    result += `<li>${filterMenu[i].name}</li>`;
+            }
+            cart.innerHTML = result;
+        })(1);
+
+        // 그림 그리기
+        // reander(1);
+
+        btn.forEach((btn, index)=>{
+            btn.addEventListener('click',() =>{
+                // 첫 번째 버튼은 1(과일), 두 번째 버튼은 2(어류)
+                let cateIndex = index + 1;
+                //클릭할 때마다 filter 메서드가 포함된 render 함수 호출
+                return reander(cateIndex);
+            });
+        })
+
+         // 버튼 클릭 이벤트
+        // btn.forEach((clickedBtn, index) => {
+        //     clickedBtn.addEventListener('click', () => {
+        //         let cateIndex = index + 1;
+
+        //         // 1. 모든 버튼을 순회하며 active 클래스 제거
+        //         btn.forEach((btnNum) => {
+        //             btnNum.classList.remove('active');
+        //         });
+
+        //         // 2. 현재 클릭한 버튼에 active 클래스 토글
+        //         clickedBtn.classList.toggle('active');
+
+        //         // 3. 필터 렌더링 함수 호출 (오타 수정: render -> reander)
+        //         reander(cateIndex);
+        //     });
+        // });
+    </script>
+</body>
+</html>
