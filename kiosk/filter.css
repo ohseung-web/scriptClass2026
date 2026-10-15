@@ -1,0 +1,415 @@
+@charset "utf-8";
+/* ==============================
+   1. 기본 설정
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #754c35;
+  --primary-dark: #513321;
+  --accent: #c58b5a;
+  --cream: #fbf7f0;
+  --white: #ffffff;
+  --text: #34271f;
+  --sub-text: #92857b;
+  --border: #eee5db;
+  --danger: #d9534f;
+  --shadow: 0 8px 28px rgba(81, 51, 33, 0.08);
+}
+
+body {
+  font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+/* ==============================
+   2. 전체 레이아웃
+============================== */
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 메뉴 영역과 주문내역 영역 */
+.order_menu,
+.order_list {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+/* ==============================
+   3. 상단 안내 문구
+============================== */
+.order_menu > h2 {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  letter-spacing: -1px;
+  margin-bottom: 9px;
+}
+
+.order_menu > p {
+  color: var(--sub-text);
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* ==============================
+   4. 메뉴 영역
+============================== */
+.section1 > h2 {
+  font-size: 19px;
+  color: var(--primary);
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+}
+
+/* 커피 / 음료 카테고리 버튼 */
+.menuBtn {
+  padding: 11px 25px;
+  margin-right: 8px;
+  margin-bottom: 22px;
+  border: 1px solid #e5d5c6;
+  border-radius: 12px;
+  background: #fffaf5;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuBtn:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.menuBtn:active {
+  transform: scale(0.97);
+}
+
+/* 메뉴 목록 */
+.menubox ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* 각각의 음료 카드 */
+.menubox li {
+  min-width: 0;
+  min-height: 135px;
+  padding: 18px 15px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fffdfb;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.menubox li:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(117, 76, 53, 0.12);
+}
+
+/* HOT / ICE 표시 */
+.menubox li > span {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.menubox li.hot > span {
+  background: #fbe8df;
+  color: #b84f35;
+}
+
+.menubox li.ice > span {
+  background: #e4f1fa;
+  color: #3679a9;
+}
+
+/* 음료 이름 */
+.menubox li strong {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* 음료 가격 */
+.menubox li em {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--primary);
+  margin-top: 9px;
+}
+
+.menubox li em::after {
+  content: "원";
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+/* 메뉴 카드 왼쪽 장식 */
+.menubox li > i {
+  display: none;
+}
+
+/* ==============================
+   5. 주문내역 영역
+============================== */
+.section2 > h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--text);
+  margin-bottom: 8px;
+}
+
+/* 주문 상품 한 줄 */
+.orderlist {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 상품명 / 수량 / 금액 */
+.orderlist p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  margin-bottom: 5px;
+}
+
+.orderlist p em {
+  font-style: normal;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.orderlist p span {
+  color: var(--primary-dark);
+  font-weight: 800;
+}
+
+/* 수량 조절 및 삭제 버튼 */
+.orderlist button {
+  width: 34px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fffaf5;
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orderlist button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* 주문 삭제 버튼 */
+.orderlist button:last-child {
+  margin-left: auto;
+  color: var(--danger);
+  background: #fff5f3;
+  border-color: #f4d9d5;
+  font-size: 15px;
+}
+
+.orderlist button:last-child:hover {
+  background: var(--danger);
+  color: var(--white);
+  border-color: var(--danger);
+}
+
+/* ==============================
+   6. 결제 영역
+============================== */
+.order_result {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 27px 32px;
+  background: var(--primary-dark);
+  color: var(--white);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.order_result h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.order_result .pay {
+  color: #ffd39e;
+  font-size: 30px;
+  font-weight: 900;
+  margin-left: 8px;
+}
+
+.order_result .pay::after {
+  content: "원";
+  font-size: 18px;
+  margin-left: 3px;
+}
+
+/* HTML에 있는 세로 구분선 */
+.order_result .line {
+  display: none;
+}
+
+/* 현금결제 버튼 */
+.order_result .btn {
+  flex-shrink: 0;
+  padding: 16px 34px;
+  border: none;
+  border-radius: 13px;
+  background: #e8b47e;
+  color: #432b1d;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.order_result .btn:hover {
+  background: #ffd39e;
+  transform: translateY(-2px);
+}
+
+.order_result .btn:active {
+  transform: scale(0.97);
+}
+
+/* ==============================
+   7. 반응형 디자인
+============================== */
+@media (max-width: 850px) {
+  body {
+    padding: 24px 16px;
+  }
+
+  .wrap {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .order_menu,
+  .order_list {
+    padding: 24px;
+  }
+
+  .order_result {
+    grid-column: 1;
+    flex-wrap: wrap;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 14px 10px;
+  }
+
+  .order_menu,
+  .order_list {
+    padding: 20px 15px;
+    border-radius: 18px;
+  }
+
+  .order_menu > h2 {
+    font-size: 21px;
+  }
+
+  .menubox ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .menubox li {
+    min-height: 125px;
+    padding: 13px 10px;
+  }
+
+  .menubox li strong {
+    font-size: 13px;
+  }
+
+  .menubox li em {
+    font-size: 14px;
+  }
+
+  .order_result {
+    gap: 16px;
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .order_result h2 {
+    font-size: 16px;
+  }
+
+  .order_result .pay {
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .order_result .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
